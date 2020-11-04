@@ -4,8 +4,8 @@ A simple news application, developed with Flutter framework. And [News API](http
 
 ## Screenshoots: 
 <img src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> <img
-src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> <img 
-src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> 
+src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/2.png" width="200"> <img 
+src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" width="200"> 
 
 ## Package i use:
 - [http](https://pub.dev/packages/http)
