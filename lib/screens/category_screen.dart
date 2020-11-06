@@ -7,7 +7,9 @@ import 'package:news/widget/loading.dart';
 
 class CategoryScreen extends StatefulWidget {
   final String category;
-  CategoryScreen({this.category});
+  CategoryScreen({
+    this.category,
+  });
   @override
   _CategoryScreenState createState() => _CategoryScreenState();
 }
@@ -24,7 +26,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   fetchCategoriesData() async {
     CategoryNews news = CategoryNews();
-    await news.fetchCategoriesDATA(widget.category);
+    await news.fetchCategoriesDATA(
+      
+      widget.category,
+    );
     articles = news.news;
     setState(() {
       _isLoading = false;
@@ -53,5 +58,4 @@ class _CategoryScreenState extends State<CategoryScreen> {
             ),
     );
   }
-
 }

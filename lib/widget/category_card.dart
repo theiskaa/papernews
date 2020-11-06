@@ -4,11 +4,12 @@ import 'package:news/screens/category_screen.dart';
 
 class CategoryCard extends StatelessWidget {
   final String name;
-  final Function onTap;
+  final String title;
+
   const CategoryCard({
     Key key,
     this.name,
-    this.onTap,
+    this.title,
   }) : super(key: key);
 
   @override
@@ -23,7 +24,7 @@ class CategoryCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         child: Container(
           height: 60,
           width: 120,
@@ -37,8 +38,9 @@ class CategoryCard extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              name,
-              style: GoogleFonts.turretRoad(fontSize: 25,fontWeight: FontWeight.w800),
+              title,
+              style: GoogleFonts.turretRoad(
+                  fontSize: 25, fontWeight: FontWeight.w800),
             ),
           ),
         ),

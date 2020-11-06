@@ -27,7 +27,6 @@ class _ArticleScreenState extends State<ArticleScreen> {
         ),
       ),
     );
+    
   }
-
- 
 }
