@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 class News {
   List<ArticleModel> news = [];
 
-  Future<void> fetchData() async {
+  Future<void> fetchData(String country) async {
     String url =
-        "http://newsapi.org/v2/top-headlines?country=tr&category=general&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
+        "http://newsapi.org/v2/top-headlines?country=$country&category=general&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
 
     var res = await http.get(url);
     var customJsonDecoder = jsonDecode(res.body);
@@ -30,7 +30,6 @@ class News {
         },
       );
     }
-    ;
   }
 }
 
@@ -39,10 +38,10 @@ class CategoryNews {
 
   Future<void> fetchCategoriesDATA(
     String category,
-    /*String country*/
+    String country
   ) async {
     String url =
-        "http://newsapi.org/v2/top-headlines?country=tr&category=$category&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
+        "http://newsapi.org/v2/top-headlines?country=$country&category=$category&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
 
     var res = await http.get(url);
     var customJsonDecoder = jsonDecode(res.body);
@@ -64,6 +63,5 @@ class CategoryNews {
         },
       );
     }
-    ;
   }
 }

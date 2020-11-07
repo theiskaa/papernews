@@ -15,13 +15,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale _locale;
-  setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

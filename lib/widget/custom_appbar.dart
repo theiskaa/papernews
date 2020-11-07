@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news/localization/app_localization.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  Widget button;
-  String title;
+  final Widget button;
+  final String title;
 
-  CustomAppBar({
+  const CustomAppBar({
     Key key,
     this.button,
     this.title,
@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             child: Text(
-              " ${AppLocalizations.of(context).translate("appbar_title")} " ,
+              " ${AppLocalizations.of(context).translate("appbar_title")} ",
               style: GoogleFonts.turretRoad(
                 fontSize: 23,
                 fontWeight: FontWeight.w800,

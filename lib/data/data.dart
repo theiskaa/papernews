@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:news/localization/app_localization.dart';
 import 'package:news/models/category_model.dart';
 
 List getCategories(

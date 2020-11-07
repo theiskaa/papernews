@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/localization/app_localization.dart';
-import 'package:news/widget/custom_appbar.dart';
 
 class InfoLang extends StatelessWidget {
   const InfoLang({Key key}) : super(key: key);
@@ -19,31 +18,35 @@ class InfoLang extends StatelessWidget {
           children: [
             buildMinorNewsTitle(context),
             SizedBox(height: 30),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    left: BorderSide(color: Colors.black, width: 2.5),
-                    top: BorderSide(color: Colors.black, width: 2.5),
-                    bottom: BorderSide(color: Colors.black, width: 4),
-                    right: BorderSide(color: Colors.black, width: 6),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      AppLocalizations.of(context).translate("info_lang"),
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.turretRoad(
-                        color: Colors.black.withOpacity(.8),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
+            buildTextBox(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding buildTextBox(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Container(
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          border: Border(
+            left: BorderSide(color: Colors.black, width: 2.5),
+            top: BorderSide(color: Colors.black, width: 2.5),
+            bottom: BorderSide(color: Colors.black, width: 4),
+            right: BorderSide(color: Colors.black, width: 6),
+          ),
+        ),
+        child: Column(
+          children: [
+            Text(
+              AppLocalizations.of(context).translate("info_lang"),
+              textAlign: TextAlign.center,
+              style: GoogleFonts.turretRoad(
+                color: Colors.black.withOpacity(.8),
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],

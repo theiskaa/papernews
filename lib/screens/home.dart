@@ -11,7 +11,7 @@ import 'package:news/screens/info_lang.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/category_card.dart';
 import 'package:news/widget/custom_appbar.dart';
-import 'package:news/widget/loading.dart';
+import 'package:news/widget/loading.dart';  
 
 class Home extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var categories = List<CategoryModel>();
-  var articles = List<ArticleModel>();
+  var articles = List<ArticleModel>(); 
   bool isLoading = true;
 
   @override
@@ -39,12 +39,20 @@ class _HomeState extends State<Home> {
     fetchData(context);
   }
 
+  @override
+  void dispose() {
+    fetchData(context);
+    super.dispose(); 
+  }
+
   fetchData(BuildContext context) async {
     News news = News();
-    await news.fetchData(
-        //"${AppLocalizations.of(context).translate("country")}"
-        // AppLocalizations.of(context).translate("country"),
-        );
+    Timer.periodic(
+      Duration(seconds: 2),
+      (t) => news.fetchData(
+        AppLocalizations.of(context).translate("country"),
+      ),
+    );
     articles = news.news;
     setState(() {
       isLoading = false;
