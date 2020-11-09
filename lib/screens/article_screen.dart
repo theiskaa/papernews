@@ -17,7 +17,15 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Container(
         child: WebView(
           initialUrl: widget.blogUrl,
@@ -27,6 +35,5 @@ class _ArticleScreenState extends State<ArticleScreen> {
         ),
       ),
     );
-    
   }
 }

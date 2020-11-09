@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:news/data/news.dart';
-import 'package:news/localization/app_localization.dart';
 import 'package:news/models/article_model.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/custom_appbar.dart';
@@ -24,17 +23,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   void initState() {
     super.initState();
-    fetchCategoriesData(context);
+    Timer(
+      Duration(seconds: 1),
+      () => fetchCategoriesData(context),
+    );
   }
 
   fetchCategoriesData(BuildContext context) async {
     CategoryNews news = CategoryNews();
-    Timer.periodic(
-      Duration(seconds: 30),
-      (t) => news.fetchCategoriesDATA(
-        widget.category,
-        AppLocalizations.of(context).translate("country"),
-      ),
+    await news.fetchCategoriesDATA(
+      context,
+      //"${AppLocalizations.of(context).translate("country")}",
+      widget.category,
     );
     articles = news.news;
     setState(() {
@@ -43,15 +43,17 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    fetchCategoriesData(context);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: _isLoading
           ? Loading()
           : Container(

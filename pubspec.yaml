@@ -30,6 +30,7 @@ dependencies:
   webview_flutter:
   google_fonts:
   flutter_spinkit:
+  provider:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -54,6 +55,7 @@ flutter:
     - assets/lang/en.json
     - assets/lang/tr.json
     - assets/lang/ru.json
+    - assets/icons/menu.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

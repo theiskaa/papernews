@@ -5,16 +5,19 @@ import 'package:news/localization/app_localization.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget button;
   final String title;
+  final Widget leading;
 
   const CustomAppBar({
     Key key,
     this.button,
+    this.leading,
     this.title,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: leading,
       elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,

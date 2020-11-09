@@ -9,9 +9,7 @@ class InfoLang extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-      ),
+      appBar: buildAppBar(context),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,6 +19,19 @@ class InfoLang extends StatelessWidget {
             buildTextBox(context),
           ],
         ),
+      ),
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: Colors.black,
+        ),
+        onPressed: () => Navigator.pop(context),
       ),
     );
   }

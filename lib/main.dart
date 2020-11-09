@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:news/data/news.dart';
 import 'package:news/localization/app_localization.dart';
 import 'package:news/screens/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-
-
   @override
   _MyAppState createState() => _MyAppState();
 }

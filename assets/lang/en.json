@@ -1,11 +1,12 @@
 {
-    "appbar_title": "News",
-    "categories_title": "Categories",
-    "general_title": "General",
-    "entertainment_title": "Entertainment",
-    "sport_title": "Sport",
-    "technology_title": "Technology",
-    "science_title": "Science",
-    "country": "us",
-    "info_lang": "Minor news app supports 3 languages, English, Russian and Turkish, if you want to change the language, change the current language of your phone and restart the application."
+  "appbar_title": "News",
+  "categories_title": "Categories",
+  "general_title": "General",
+  "entertainment_title": "Entertainment",
+  "sport_title": "Sport",
+  "technology_title": "Technology",
+  "science_title": "Science",
+  "health_title": "Health",
+  "country": "us",
+  "info_lang": "Minor news app supports 3 languages, English, Russian and Turkish, if you want to change the language, change the current language of your phone and restart the application."
 }

@@ -11,7 +11,7 @@ import 'package:news/screens/info_lang.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/category_card.dart';
 import 'package:news/widget/custom_appbar.dart';
-import 'package:news/widget/loading.dart';  
+import 'package:news/widget/loading.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -20,38 +20,37 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var categories = List<CategoryModel>();
-  var articles = List<ArticleModel>(); 
+  var articles = List<ArticleModel>();
   bool isLoading = true;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     Timer(
       Duration(seconds: 1),
+      () => fetchData(context),
+    );
+    Timer(
+      Duration(seconds: 1),
       () => categories = getCategories(
+        context,
         AppLocalizations.of(context).translate("general_title"),
         AppLocalizations.of(context).translate("entertainment_title"),
         AppLocalizations.of(context).translate("sport_title"),
         AppLocalizations.of(context).translate("technology_title"),
         AppLocalizations.of(context).translate("science_title"),
+        AppLocalizations.of(context).translate("health_title"),
       ),
     );
-    fetchData(context);
-  }
-
-  @override
-  void dispose() {
-    fetchData(context);
-    super.dispose(); 
   }
 
   fetchData(BuildContext context) async {
     News news = News();
-    Timer.periodic(
-      Duration(seconds: 2),
-      (t) => news.fetchData(
-        AppLocalizations.of(context).translate("country"),
-      ),
+    await news.fetchData(
+      context,
+      "${AppLocalizations.of(context).translate("country")}",
+      // AppLocalizations.of(context).translate("country"),
     );
     articles = news.news;
     setState(() {
@@ -62,6 +61,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: buildCustomAppBar(),
       drawer: buildDrawer(),
       body: isLoading
@@ -86,6 +86,13 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      leading: IconButton(
+        icon: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Image.asset('assets/icons/menu.png'),
+        ),
+        onPressed: () => scaffoldKey.currentState.openDrawer(),
+      ),
     );
   }
 
@@ -109,11 +116,11 @@ class _HomeState extends State<Home> {
   Drawer buildDrawer() {
     return Drawer(
       child: Container(
+        alignment: Alignment.center,
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          padding: const EdgeInsets.all(10),
+          child: ListView(
             children: [
               Container(
                 child: Column(
