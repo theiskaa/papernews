@@ -83,14 +83,8 @@ class _HomeState extends State<Home> {
     return CustomAppBar(
       button: IconButton(
         icon: isGridView
-            ? Icon(
-                Icons.list,
-                color: Colors.black,
-              )
-            : Icon(
-                Icons.grid_on,
-                color: Colors.black,
-              ),
+            ? Image.asset('assets/icons/list.png')
+            : Image.asset('assets/icons/grid.png'),
         onPressed: changeIconWithGrid,
       ),
       leading: IconButton(
@@ -138,7 +132,7 @@ class _HomeState extends State<Home> {
           return AnimationConfiguration.staggeredList(
             position: index,
             duration: const Duration(milliseconds: 800),
-            child: SlideAnimation( 
+            child: SlideAnimation(
               verticalOffset: 50,
               child: SlideAnimation(
                 child: MiniBlogCard(

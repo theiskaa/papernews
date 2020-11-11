@@ -73,7 +73,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             duration: const Duration(seconds: 1),
             child: SlideAnimation(
               verticalOffset: 50,
-              child: FadeInAnimation(
+              child: SlideAnimation(
                 child: BlogCard(
                   title: articles[index].title,
                   des: articles[index].description,
@@ -124,7 +124,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
         onPressed: () => Navigator.pop(context),
       ),
       button: IconButton(
-        icon: isGridView ? Icon(Icons.list) : Icon(Icons.grid_on),
+        icon: isGridView
+            ? Image.asset('assets/icons/list.png')
+            : Image.asset('assets/icons/grid.png'),
         onPressed: changeIconWithListView,
       ),
     );
