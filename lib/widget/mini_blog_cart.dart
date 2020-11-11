@@ -44,7 +44,7 @@ class MiniBlogCard extends StatelessWidget {
                   title,
                   style: GoogleFonts.turretRoad(
                     color: Colors.black,
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: FontWeight.w700,
                   ),
                 ),

@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:news/data/news.dart';
 import 'package:news/models/article_model.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/custom_appbar.dart';
 import 'package:news/widget/loading.dart';
+import 'package:news/widget/mini_blog_cart.dart';
 
 class CategoryScreen extends StatefulWidget {
   final String category;
@@ -34,7 +36,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
     CategoryNews news = CategoryNews();
     await news.fetchCategoriesDATA(
       context,
-      //"${AppLocalizations.of(context).translate("country")}",
       widget.category,
     );
     articles = news.news;
@@ -56,7 +57,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       body: _isLoading
           ? Loading()
           : Container(
-              child: buildBlogListFIRST(),
+              child: isGridView ? buildBlogListSECCOND() : buildBlogListFIRST(),
             ),
     );
   }
@@ -74,6 +75,34 @@ class _CategoryScreenState extends State<CategoryScreen> {
             url: articles[index].url,
           );
         },
+      ),
+    );
+  }
+
+  Container buildBlogListSECCOND() {
+    return Container(
+      child: AnimationLimiter(
+        child: GridView.builder(
+          itemCount: articles.length,
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemBuilder: (BuildContext context, int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 500),
+              child: SlideAnimation(
+                verticalOffset: 50,
+                child: SlideAnimation(
+                  child: MiniBlogCard(
+                    title: articles[index].title,
+                    des: articles[index].description,
+                    url: articles[index].url,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

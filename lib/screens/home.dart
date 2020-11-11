@@ -52,7 +52,6 @@ class _HomeState extends State<Home> {
     await news.fetchData(
       context,
       "${AppLocalizations.of(context).translate("country")}",
-      // AppLocalizations.of(context).translate("country"),
     );
     articles = news.news;
     setState(() {
@@ -74,7 +73,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void changeIconWithListeningIsGridView() {
+  void changeIconWithGrid() {
     setState(() {
       isGridView = !isGridView;
     });
@@ -92,7 +91,7 @@ class _HomeState extends State<Home> {
                 Icons.grid_on,
                 color: Colors.black,
               ),
-        onPressed: changeIconWithListeningIsGridView,
+        onPressed: changeIconWithGrid,
       ),
       leading: IconButton(
         icon: Padding(
@@ -130,10 +129,10 @@ class _HomeState extends State<Home> {
           itemBuilder: (BuildContext context, int index) {
             return AnimationConfiguration.staggeredList(
               position: index,
-              duration: const Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 800),
               child: SlideAnimation(
                 verticalOffset: 50,
-                child: ScaleAnimation(
+                child: SlideAnimation(
                   child: MiniBlogCard(
                     title: articles[index].title,
                     des: articles[index].description,

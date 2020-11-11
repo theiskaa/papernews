@@ -48,7 +48,7 @@ class BlogCard extends StatelessWidget {
                 title,
                 style: GoogleFonts.turretRoad(
                   color: Colors.black,
-                  fontSize: 20,
+                  fontSize: 23,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -57,7 +57,7 @@ class BlogCard extends StatelessWidget {
                 des,
                 style: GoogleFonts.turretRoad(
                   color: Colors.black.withOpacity(.7),
-                  fontSize: 16,
+                  fontSize: 18.5,
                   fontWeight: FontWeight.w500,
                 ),
               ),

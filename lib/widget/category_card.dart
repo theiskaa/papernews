@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/screens/category_screen.dart';
+import 'package:news/screens/home.dart';
 
 class CategoryCard extends StatelessWidget {
   final String name;
