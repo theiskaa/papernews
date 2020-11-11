@@ -108,11 +108,20 @@ class _HomeState extends State<Home> {
       child: ListView.builder(
         itemCount: articles.length,
         itemBuilder: (BuildContext context, int index) {
-          return BlogCard(
-            image: articles[index].urlToImage,
-            title: articles[index].title,
-            des: articles[index].description,
-            url: articles[index].url,
+          return AnimationConfiguration.staggeredList(
+            position: index,
+            duration: const Duration(milliseconds: 800),
+            child: SlideAnimation(
+              verticalOffset: 50,
+              child: FadeInAnimation(
+                child: BlogCard(
+                  image: articles[index].urlToImage,
+                  title: articles[index].title,
+                  des: articles[index].description,
+                  url: articles[index].url,
+                ),
+              ),
+            ),
           );
         },
       ),
@@ -121,28 +130,26 @@ class _HomeState extends State<Home> {
 
   Container buildBlogsSECCOND() {
     return Container(
-      child: AnimationLimiter(
-        child: GridView.builder(
-          itemCount: articles.length,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (BuildContext context, int index) {
-            return AnimationConfiguration.staggeredList(
-              position: index,
-              duration: const Duration(milliseconds: 800),
+      child: GridView.builder(
+        itemCount: articles.length,
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (BuildContext context, int index) {
+          return AnimationConfiguration.staggeredList(
+            position: index,
+            duration: const Duration(milliseconds: 800),
+            child: SlideAnimation(
+              verticalOffset: 50,
               child: SlideAnimation(
-                verticalOffset: 50,
-                child: SlideAnimation(
-                  child: MiniBlogCard(
-                    title: articles[index].title,
-                    des: articles[index].description,
-                    url: articles[index].url,
-                  ),
+                child: MiniBlogCard(
+                  title: articles[index].title,
+                  des: articles[index].description,
+                  url: articles[index].url,
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
