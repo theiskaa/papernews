@@ -1,17 +1,18 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/data/data.dart';
 import 'package:news/data/news.dart';
 import 'package:news/localization/app_localization.dart';
 import 'package:news/models/article_model.dart';
 import 'package:news/models/category_model.dart';
-import 'package:news/screens/info_lang.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/category_card.dart';
 import 'package:news/widget/custom_appbar.dart';
 import 'package:news/widget/loading.dart';
+import 'package:news/widget/mini_blog_cart.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _HomeState extends State<Home> {
   var articles = List<ArticleModel>();
   bool isLoading = true;
   var scaffoldKey = GlobalKey<ScaffoldState>();
+  bool isGridView = false;
 
   @override
   void initState() {
@@ -67,28 +69,34 @@ class _HomeState extends State<Home> {
       body: isLoading
           ? Loading()
           : Container(
-              child: buildBlogs(),
+              child: isGridView ? buildBlogsSECCOND() : buildBlogsFIRST(),
             ),
     );
+  }
+
+  void changeIconWithListeningIsGridView() {
+    setState(() {
+      isGridView = !isGridView;
+    });
   }
 
   CustomAppBar buildCustomAppBar() {
     return CustomAppBar(
       button: IconButton(
-        icon: Icon(
-          Icons.language,
-          color: Colors.black,
-        ),
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => InfoLang(),
-          ),
-        ),
+        icon: isGridView
+            ? Icon(
+                Icons.list,
+                color: Colors.black,
+              )
+            : Icon(
+                Icons.grid_on,
+                color: Colors.black,
+              ),
+        onPressed: changeIconWithListeningIsGridView,
       ),
       leading: IconButton(
         icon: Padding(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(6.5),
           child: Image.asset('assets/icons/menu.png'),
         ),
         onPressed: () => scaffoldKey.currentState.openDrawer(),
@@ -96,12 +104,11 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Container buildBlogs() {
+  Container buildBlogsFIRST() {
     return Container(
       child: ListView.builder(
-        shrinkWrap: true,
         itemCount: articles.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (BuildContext context, int index) {
           return BlogCard(
             image: articles[index].urlToImage,
             title: articles[index].title,
@@ -109,6 +116,34 @@ class _HomeState extends State<Home> {
             url: articles[index].url,
           );
         },
+      ),
+    );
+  }
+
+  Container buildBlogsSECCOND() {
+    return Container(
+      child: AnimationLimiter(
+        child: GridView.builder(
+          itemCount: articles.length,
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemBuilder: (BuildContext context, int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 500),
+              child: SlideAnimation(
+                verticalOffset: 50,
+                child: ScaleAnimation(
+                  child: MiniBlogCard(
+                    title: articles[index].title,
+                    des: articles[index].description,
+                    url: articles[index].url,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

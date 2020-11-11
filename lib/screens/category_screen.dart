@@ -19,6 +19,7 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   var articles = List<ArticleModel>();
   bool _isLoading = true;
+  bool isGridView = false;
 
   @override
   void initState() {
@@ -42,34 +43,54 @@ class _CategoryScreenState extends State<CategoryScreen> {
     });
   }
 
+  void changeIconWithListView() {
+    setState(() {
+      isGridView = !isGridView;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
+      appBar: buildCustomAppBar(context),
       body: _isLoading
           ? Loading()
           : Container(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: articles.length,
-                itemBuilder: (context, index) {
-                  return BlogCard(
-                    image: articles[index].urlToImage,
-                    title: articles[index].title,
-                    des: articles[index].description,
-                    url: articles[index].url,
-                  );
-                },
-              ),
+              child: buildBlogListFIRST(),
             ),
+    );
+  }
+
+  Container buildBlogListFIRST() {
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: articles.length,
+        itemBuilder: (context, index) {
+          return BlogCard(
+            image: articles[index].urlToImage,
+            title: articles[index].title,
+            des: articles[index].description,
+            url: articles[index].url,
+          );
+        },
+      ),
+    );
+  }
+
+  CustomAppBar buildCustomAppBar(BuildContext context) {
+    return CustomAppBar(
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: Colors.black,
+        ),
+        onPressed: () => Navigator.pop(context),
+      ),
+      button: IconButton(
+        icon: isGridView ? Icon(Icons.list) : Icon(Icons.grid_on),
+        onPressed: changeIconWithListView,
+      ),
     );
   }
 }
