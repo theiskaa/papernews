@@ -1,6 +1,6 @@
 # Minor News
 
-**Minor news** application, developed with Flutter framework. And [News API](https://newsapi.org)
+**Minor news** application, developed with Flutter framework. 
 
 ## Screenshoots: 
 <img src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> <img
