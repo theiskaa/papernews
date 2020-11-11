@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
             duration: const Duration(milliseconds: 800),
             child: SlideAnimation(
               verticalOffset: 50,
-              child: FadeInAnimation(
+              child: SlideAnimation(
                 child: BlogCard(
                   image: articles[index].urlToImage,
                   title: articles[index].title,
@@ -138,7 +138,7 @@ class _HomeState extends State<Home> {
           return AnimationConfiguration.staggeredList(
             position: index,
             duration: const Duration(milliseconds: 800),
-            child: SlideAnimation(
+            child: SlideAnimation( 
               verticalOffset: 50,
               child: SlideAnimation(
                 child: MiniBlogCard(
