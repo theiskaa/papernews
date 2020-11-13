@@ -13,3 +13,4 @@ src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" 
 - [cached_network_image:](https://pub.dev/packages/cached_network_image)
 - [webview_flutter:](https://pub.dev/packages/webview_flutter)
 - [google_fonts:](https://pub.dev/packages/google_fonts) 
+- [flutter_staggered_animations:]()
