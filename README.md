@@ -15,11 +15,11 @@ run this commands on terminal
 cd Desktop
 git clone https://github.com/theiskaa/minor_news
 ```
-than you have to run pub get command
+then you have to run pub get command
 ```
 flutter pub get
 ```
-And than you can run the application
+And then you can run the application
 ```
 cd minor_news 
 flutter run
@@ -32,6 +32,5 @@ flutter run
 - [webview_flutter:](https://pub.dev/packages/webview_flutter)
 - [google_fonts:](https://pub.dev/packages/google_fonts) 
 - [flutter_staggered_animations:](https://pub.dev/packages/flutter_staggered_animations)
-
-
+##
 > Think Different - Steve Jobs
