@@ -10,7 +10,7 @@ src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/2.png" 
 src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" width="200"> 
 
 ## How to donwload?
-run this commands on terminal
+run this commands on terminal 
 ```
 cd Desktop
 git clone https://github.com/theiskaa/minor_news
