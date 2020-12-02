@@ -11,7 +11,7 @@ class News {
   Future<void> fetchData(BuildContext context, String country) async {
     String country = "${AppLocalizations.of(context).translate("country")}";
     String url =
-        "http://newsapi.org/v2/top-headlines?country=$country&category=general&apiKey=${//your api key}";
+        "http://newsapi.org/v2/top-headlines?country=$country&category=business&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
 
     var res = await http.get(url);
     var customJsonDecoder = jsonDecode(res.body);
@@ -45,7 +45,7 @@ class CategoryNews {
   ) async {
     String country = "${AppLocalizations.of(context).translate("country")}";
     String url =
-        "http://newsapi.org/v2/top-headlines?country=$country&category=$category&apiKey=${//your api key}";
+        "http://newsapi.org/v2/top-headlines?country=$country&category=$category&apiKey=9ae5e1bfa42a4e34a9c7c86891d49976";
 
     var res = await http.get(url);
     var customJsonDecoder = jsonDecode(res.body);

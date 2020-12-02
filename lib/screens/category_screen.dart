@@ -5,8 +5,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:news/data/news.dart';
 import 'package:news/models/article_model.dart';
 import 'package:news/widget/blog_cart.dart';
-import 'package:news/widget/custom_appbar.dart';
-import 'package:news/widget/loading.dart';
+import 'package:news/widget/components/custom_appbar.dart';
+import 'package:news/widget/components/loading.dart';
 import 'package:news/widget/mini_blog_cart.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   fetchCategoriesData(BuildContext context) async {
-    CategoryNews news = CategoryNews();
+    var news = CategoryNews();
     await news.fetchCategoriesDATA(
       context,
       widget.category,

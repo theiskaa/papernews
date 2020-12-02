@@ -41,5 +41,35 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>my.domain</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>my.other.domain</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+          <key>NSIncludesSubdomains</key>
+          <true/>
+        </dict>
+      </dict>
+    </dict>
 </dict>
 </plist>
+<!-- 
+NSExceptionDomains : Dictionary {
+    <domain-name-string> : Dictionary {
+        NSIncludesSubdomains : Boolean
+        NSExceptionAllowsInsecureHTTPLoads : Boolean
+        NSExceptionMinimumTLSVersion : String
+        NSExceptionRequiresForwardSecrecy : Boolean
+        NSRequiresCertificateTransparency : Boolean
+    }
+} -->

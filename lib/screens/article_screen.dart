@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:news/widget/custom_appbar.dart';
+import 'package:news/widget/components/custom_appbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ArticleScreen extends StatefulWidget {

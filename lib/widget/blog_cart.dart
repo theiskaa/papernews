@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/screens/article_screen.dart';
 
-class BlogCard extends StatelessWidget {
+class BlogCard extends StatefulWidget {
   final String image;
   final String title;
   final String des;
@@ -18,18 +18,46 @@ class BlogCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _BlogCardState createState() => _BlogCardState();
+}
+
+class _BlogCardState extends State<BlogCard> {
+  bool isTapped = false;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ArticleScreen(
-            blogUrl: url,
+      onTapDown: (details) {
+        setState(() {
+          isTapped = true;
+        });
+      },
+      onTapCancel: () {
+        setState(() {
+          isTapped = false;
+        });
+      },
+      onTapUp: (details) {
+        setState(() {
+          isTapped = false;
+        });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticleScreen(
+              blogUrl: widget.url,
+            ),
           ),
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        );
+      },
+      child: buildCard(),
+    );
+  }
+
+  Padding buildCard() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Opacity(
+        opacity: isTapped ? .5 : 1,
         child: Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -42,10 +70,10 @@ class BlogCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              CachedNetworkImage(imageUrl: image),
+              CachedNetworkImage(imageUrl: widget.image),
               SizedBox(height: 3),
               Text(
-                title,
+                widget.title,
                 style: GoogleFonts.turretRoad(
                   color: Colors.black,
                   fontSize: 23,
@@ -54,7 +82,7 @@ class BlogCard extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                des,
+                widget.des,
                 style: GoogleFonts.turretRoad(
                   color: Colors.black.withOpacity(.7),
                   fontSize: 18.5,

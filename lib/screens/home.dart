@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news/data/data.dart';
+import 'package:news/data/categories.dart';
 import 'package:news/data/news.dart';
 import 'package:news/localization/app_localization.dart';
 import 'package:news/models/article_model.dart';
 import 'package:news/models/category_model.dart';
 import 'package:news/widget/blog_cart.dart';
 import 'package:news/widget/category_card.dart';
-import 'package:news/widget/custom_appbar.dart';
-import 'package:news/widget/loading.dart';
+import 'package:news/widget/components/custom_appbar.dart';
+import 'package:news/widget/components/loading.dart';
 import 'package:news/widget/mini_blog_cart.dart';
 
 class Home extends StatefulWidget {
