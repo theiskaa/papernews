@@ -22,9 +22,13 @@ class BlogCard extends StatefulWidget {
 }
 
 class _BlogCardState extends State<BlogCard> {
+
+  
   bool isTapped = false;
   @override
   Widget build(BuildContext context) {
+
+    
     return GestureDetector(
       onTapDown: (details) {
         setState(() {

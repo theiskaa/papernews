@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news/localization/app_localization.dart';
 import 'package:news/screens/home.dart';
@@ -16,11 +17,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+
+    //for unagree the screens rotation
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.white,
-      ),
+      theme: buildThemeData(),
       home: Splash(),
       supportedLocales: [
         Locale("en", "US"),
@@ -42,6 +47,12 @@ class _MyAppState extends State<MyApp> {
 
         return supportedLocales.first;
       },
+    );
+  }
+
+  ThemeData buildThemeData() {
+    return ThemeData(
+      primaryColor: Colors.white,
     );
   }
 }
