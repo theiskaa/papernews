@@ -7,7 +7,8 @@
 ## Screenshoots: 
 <img src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> <img
 src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/2.png" width="200"> <img 
-src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" width="200"> 
+src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" width="200">  <img 
+src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/4.png" width="200">
 
 ## How to donwload?
 run this commands on terminal 
@@ -33,4 +34,5 @@ flutter run
 - [google_fonts:](https://pub.dev/packages/google_fonts) 
 - [flutter_staggered_animations:](https://pub.dev/packages/flutter_staggered_animations)
 ##
-> Think Different - Steve Jobs
+
+> Think Different
