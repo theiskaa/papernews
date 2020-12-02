@@ -6,7 +6,7 @@
 
 ## Screenshoots: 
 <img src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/1.png" width="200"> <img
-src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/2.png" width="210"> <img 
+src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/2.png" width="200"> <img 
 src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/3.png" width="200">  <img 
 src="https://github.com/theiskaa/minor_news/blob/main/assets/screenshots/4.png" width="200">
 
