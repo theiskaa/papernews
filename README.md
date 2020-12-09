@@ -1,6 +1,6 @@
 # Minor News
 [![License: MIT](https://img.shields.io/npm/l/license?color=red&label=Minor%20News&logo=minor&logoColor=black)](https://github.com/angular/angular.js/blob/master/LICENSE)
-[![Twitter: IsmaelSh4](https://img.shields.io/twitter/follow/IsmaelSh4?style=social)](https://twitter.com/IsmaelSh4)
+[![Twitter: IsmaelSh4](https://img.shields.io/twitter/follow/theiskaa?style=social)](https://twitter.com/theiskaa)
 
 **Minor news** application, developed with Flutter framework. The app supports 3 language: English, Russian and Turkish. Applications language changing otomaticaly so listening your current phone language and app being in these language. And the app has different UI and UX, Minor News app will avaiable on Play Store coming soon...
 
