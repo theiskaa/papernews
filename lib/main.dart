@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news/localization/app_localization.dart';
-import 'package:news/screens/home.dart';
 import 'package:news/screens/spash.dart';
 
 void main() {

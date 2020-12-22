@@ -20,8 +20,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var categories = List<CategoryModel>();
-  var articles = List<ArticleModel>();
+  var categories = <CategoryModel>[];
+  var articles = <ArticleModel>[];
   bool isLoading = true;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   bool isGridView = false;
@@ -195,6 +195,22 @@ class _HomeState extends State<Home> {
                   );
                 },
               ),
+              // SizedBox(height: 50),
+              // OpacityButton(
+              //   opacityValue: .4,
+              //   onTap: () => urlLaunch("https://www.instagram.com/theiskaa/"),
+              //   child: Container(
+              //     alignment: Alignment.center,
+              //     child: Text(
+              //       "@theiskaa",
+              //       textAlign: TextAlign.center,
+              //       style: GoogleFonts.turretRoad(
+              //         fontSize: 25,
+              //         fontWeight: FontWeight.w800,
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

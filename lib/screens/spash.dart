@@ -34,8 +34,8 @@ class _SplashState extends State<Splash> {
       backgroundColor: Colors.white,
       body: Center(
         child: TextLiquidFill(
-          waveDuration: Duration(milliseconds: 800),
-          text: 'M',
+          waveDuration: Duration(milliseconds: 900),
+          text: 'Pn',
           waveColor: Colors.black,
           boxBackgroundColor: Colors.white,
           textStyle: GoogleFonts.turretRoad(

@@ -17,22 +17,30 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
+      appBar: buildCustomAppBar(context),
+      body: buildBody(),
+    );
+  }
+
+  Container buildBody() {
+    return Container(
+      child: WebView(
+        initialUrl: widget.blogUrl,
+        onWebViewCreated: ((WebViewController webViewController) {
+          _completer.complete(webViewController);
+        }),
       ),
-      body: Container(
-        child: WebView(
-          initialUrl: widget.blogUrl,
-          onWebViewCreated: ((WebViewController webViewController) {
-            _completer.complete(webViewController);
-          }),
+    );
+  }
+
+  CustomAppBar buildCustomAppBar(BuildContext context) {
+    return CustomAppBar(
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: Colors.black,
         ),
+        onPressed: () => Navigator.pop(context),
       ),
     );
   }

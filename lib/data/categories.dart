@@ -10,7 +10,7 @@ List getCategories(
   String science,
   String health,
 ) {
-  var category = List<CategoryModel>();
+  var category = <CategoryModel>[];
   var categoryModel = CategoryModel();
 
   // 1. General

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news/localization/app_localization.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget button;
@@ -41,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           child: Text(
-            ' Minor ',
+            ' Paper ',
             style: GoogleFonts.turretRoad(
               fontSize: 25,
               fontWeight: FontWeight.w900,
@@ -52,15 +51,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         Container(
           decoration: BoxDecoration(
             border: Border(
-              bottom: BorderSide(color: Colors.black, width: 2.3),
-              right: BorderSide(color: Colors.black, width: 2.8),
+              bottom: BorderSide(color: Colors.black, width: 2),
+              right: BorderSide(color: Colors.black, width: 2),
             ),
           ),
           child: Text(
-            " ${AppLocalizations.of(context).translate("appbar_title")} ",
+            " news ",
             style: GoogleFonts.turretRoad(
-              fontSize: 23,
-              fontWeight: FontWeight.w800,
+              fontSize: 25,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),

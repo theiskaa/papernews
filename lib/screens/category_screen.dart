@@ -19,7 +19,7 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  var articles = List<ArticleModel>();
+  var articles = <ArticleModel>[];
   bool _isLoading = true;
   bool isGridView = false;
 
